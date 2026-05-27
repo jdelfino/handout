@@ -1,0 +1,28 @@
+pre-commit:
+  parallel: true
+  commands:
+    bd-pre-commit:
+      run: TERM=dumb bd hooks run pre-commit
+    gitleaks:
+      run: gitleaks git --pre-commit --staged --no-banner
+
+prepare-commit-msg:
+  commands:
+    bd-trailers:
+      run: TERM=dumb bd hooks run prepare-commit-msg {1}
+
+pre-push:
+  parallel: true
+  commands:
+    bd-push:
+      run: TERM=dumb bd hooks run pre-push {1} {2}
+
+post-checkout:
+  commands:
+    bd-hooks:
+      run: TERM=dumb bd hooks run post-checkout {1} {2} {3}
+
+post-merge:
+  commands:
+    bd-hooks:
+      run: TERM=dumb bd hooks run post-merge {1}
