@@ -339,7 +339,7 @@ Optional:
 - `docker-compose.yml` — simplest self-deploy: app + Postgres, `docker compose up` and go. Sensible defaults so ~5 env vars get a working instance. Takes `IMAGE` env var, defaults to the reference image.
 - `deploy/terraform/gcp/` — Terraform module for GCP deployment (Cloud Run + Cloud SQL + Secret Manager + IAM + domain mapping). Inputs include `project_id`, `region`, `container_image`, `domain`, `db_tier`, etc. The same module the hosted instance uses, parameterized — fork it, vendor it, or use it directly. Other clouds get their own modules when someone needs them.
 - `docs/deploy/` — short per-platform recipes: Docker Compose, Fly.io, Render, generic Linux VPS, and a pointer to the GCP Terraform module. Each recipe (10-30 lines) takes image URI as input.
-- `docs/setup/github-app.md` — step-by-step App registration: required permissions, callback URL, webhook URL, webhook events, where to find each credential in GitHub's UI.
+- `docs/setup/SELF_HOSTING.md` — end-to-end self-hosting walkthrough: GCP project, App registration, configuration, deployment recipes, ongoing operator responsibilities.
 - `docs/build.md` — building from source for forkers and audit-from-source operators. Short: `docker build`, push to your registry, point your deploy at it.
 - `docs/upgrade.md` — pull new image (or build your fork's new image), run migrations, restart. Idempotent migrations make this safe.
 
