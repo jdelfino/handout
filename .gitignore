@@ -9,6 +9,7 @@ out/
 build/
 dist/
 *.tsbuildinfo
+next-env.d.ts
 
 # Environment files (secrets)
 .env
@@ -46,6 +47,8 @@ playwright-report/
 # Misc
 .cache/
 .turbo/
+.vercel/
+*.pem
 
 # Beads / Dolt files (added by bd init)
 .dolt/

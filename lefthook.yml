@@ -3,6 +3,12 @@ pre-commit:
   commands:
     bd-pre-commit:
       run: TERM=dumb bd hooks run pre-commit
+    lint:
+      glob: "{,app/,lib/,**/}*.{ts,tsx,js,jsx,mjs}"
+      run: npm run lint -- {staged_files}
+    typecheck:
+      glob: "{,app/,lib/,**/}*.{ts,tsx}"
+      run: npm run typecheck
     gitleaks:
       run: gitleaks git --pre-commit --staged --no-banner
 
