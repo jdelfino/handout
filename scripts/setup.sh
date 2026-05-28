@@ -67,5 +67,8 @@ Steps:
 
 --------------------------------------------------------------------
 
-Done.
+Without bot identity, normal git/gh credentials forwarded by your
+devcontainer/devpod work unchanged — no extra setup needed.
+
+Start the dev server: npm run dev
 EOF

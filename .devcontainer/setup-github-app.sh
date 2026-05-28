@@ -93,4 +93,16 @@ chmod 600 "$WORKSPACE_DIR/.gh-app-token"
 # configured, GH_TOKEN (the App installation token) is the only auth path.
 rm -f "$HOME/.config/gh/hosts.yml"
 
+# Block SSH to github.com so personal SSH keys can't be used as a fallback.
+# IdentitiesOnly without an IdentityFile means the SSH agent is never consulted.
+mkdir -p "$HOME/.ssh"
+if ! grep -q "^Host github.com" "$HOME/.ssh/config" 2>/dev/null; then
+    cat >> "$HOME/.ssh/config" <<'EOF'
+
+Host github.com
+    IdentitiesOnly yes
+EOF
+    chmod 600 "$HOME/.ssh/config"
+fi
+
 echo "GitHub App token generated (expires in 1 hour)"

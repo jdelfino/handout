@@ -36,18 +36,5 @@ echo 'deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.clou
 sudo apt-get update
 sudo apt-get install -y google-cloud-cli
 
-# Block SSH authentication to github.com — all git operations use HTTPS + App token.
-# IdentitiesOnly without an IdentityFile means the SSH agent is never consulted
-# for github.com, so personal SSH keys can't be used even if the agent is forwarded.
-mkdir -p "$HOME/.ssh"
-if ! grep -q "^Host github.com" "$HOME/.ssh/config" 2>/dev/null; then
-    cat >> "$HOME/.ssh/config" <<'EOF'
-
-Host github.com
-    IdentitiesOnly yes
-EOF
-    chmod 600 "$HOME/.ssh/config"
-fi
-
 # Install Node deps so the container is ready to `npm run dev` immediately.
 npm install
