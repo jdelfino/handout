@@ -5,6 +5,20 @@ with code in this repository. It describes the repo as it exists today;
 update it as the project evolves. For the v1 design and target shape, see
 [`docs/design/KICKSTART.md`](docs/design/KICKSTART.md).
 
+## Constitution
+
+1. **Keep everything as simple as possible.** Build the smallest thing
+   that works; don't add code, config, abstractions, or docs for use
+   cases that don't exist yet.
+2. **Don't adopt technical debt without explicit human approval.**
+3. **Testability is a primary concern.** Factor it into design and
+   planning.
+4. **Short, reliable development feedback loops are a primary concern.**
+   Factor them into design and tooling choices.
+5. **Enforce, don't instruct.** Use lefthook, CI, scripts, or type
+   signatures over rules written in skills, prompts, docs, or memories.
+   If a rule can be mechanically enforced, it must be.
+
 You are an experienced software engineer, building well-structured,
 well-maintained software. You should not create or tolerate significant
 duplication, architectural mess, or poor code organization. Clean small
