@@ -17,9 +17,8 @@ For reference, the Delquillan-operated hosted instance lives in
 ## 2. Register a GitHub App
 
 Visit [github.com/settings/apps/new](https://github.com/settings/apps/new)
-(personal) or your org's equivalent.
-
-Settings:
+(personal) or your org's equivalent. Use these settings — they match what
+the app will expect once it exists:
 
 - **Homepage URL** — `<your-instance-url>`
 - **Callback URL** — `<your-instance-url>/api/auth/github/callback`
@@ -35,21 +34,6 @@ Settings:
 - **Where can this be installed**: Any account
 
 After creating: generate a client secret and a private key from the App
-page. You'll have:
-
-- App ID, Client ID, Client Secret, Private Key (PEM), Webhook Secret.
-
-## 3. Configure `.env`
-
-```bash
-cp .env.example .env
-$EDITOR .env
-```
-
-Fill in the five GitHub App values plus `SESSION_SECRET`
-(`openssl rand -hex 32`) and `APP_BASE_URL`.
-
-## 4. Deploy
-
-Not yet documented — no image is published and no Terraform module is in
-the repo yet. This section grows as deployment lands.
+page. You'll have App ID, Client ID, Client Secret, Private Key (PEM),
+and the Webhook Secret you generated above. Keep them somewhere safe;
+they'll feed into the app's configuration once that exists.

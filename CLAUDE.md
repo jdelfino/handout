@@ -24,15 +24,13 @@ product, separate GCP project, shares the `.overlay/` problem-repo format.
 
 - Next.js 16 (App Router) + React 19 + TypeScript + Tailwind v4 scaffold
   from `create-next-app`. Default landing page is unchanged.
-- `app/healthz/route.ts` — health check returning `ok`.
-- `app/api/github/webhooks/route.ts` — webhook receiver stub
-  (501 Not Implemented).
-- `lib/github/`, `lib/db/`, `migrations/` — empty placeholder dirs.
-- `Dockerfile`, `.dockerignore`, `docker-compose.yml`, `.env.example` —
-  canonical container build and simplest self-deploy recipe.
 - `.devcontainer/`, `.claude/` — dev environment and agent tooling
   (ported from eval).
-- `docs/design/KICKSTART.md` — v1 design doc.
+- `docs/design/KICKSTART.md` — v1 design doc (the plan).
+- `docs/setup/SELF_HOSTING.md` — early self-hosting checklist (WIP).
+
+No application code, no database, no GitHub-App wiring, no deployment
+artifacts yet.
 
 > ⚠️ Next.js 16 has breaking changes from earlier versions. Before writing
 > code that touches Next.js APIs, read `node_modules/next/dist/docs/`.
