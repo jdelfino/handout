@@ -16,9 +16,9 @@
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/terraform:1": {}
   },
-  "initializeCommand": "./.devcontainer/init-1password.sh",
+  "initializeCommand": "mkdir -p \"${localEnv:HOME}/.claude\"",
   "postCreateCommand": "./.devcontainer/post-create.sh",
-  "postStartCommand": "./.devcontainer/post-start.sh && ./.devcontainer/setup-secrets.sh",
+  "postStartCommand": "./.devcontainer/post-start.sh",
 
   "remoteEnv": {
     "BD_SOCKET": "/tmp/beads.sock"

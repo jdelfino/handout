@@ -12,9 +12,6 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 # unchanged files as dirty.
 git config --local core.checkStat minimal
 
-# Install 1Password CLI
-"$SCRIPT_DIR/install-1password-cli.sh"
-
 # Install beads (git hooks are orchestrated by lefthook, see lefthook.yml)
 curl -fsSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh | bash
 
@@ -39,9 +36,6 @@ echo 'deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.clou
 sudo apt-get update
 sudo apt-get install -y google-cloud-cli
 
-# Configure 1Password vault access
-"$SCRIPT_DIR/setup.sh"
-
 # Block SSH authentication to github.com — all git operations use HTTPS + App token.
 # IdentitiesOnly without an IdentityFile means the SSH agent is never consulted
 # for github.com, so personal SSH keys can't be used even if the agent is forwarded.
@@ -54,3 +48,6 @@ Host github.com
 EOF
     chmod 600 "$HOME/.ssh/config"
 fi
+
+# Install Node deps so the container is ready to `npm run dev` immediately.
+npm install
